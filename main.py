@@ -13,14 +13,14 @@ from nltk.sentiment import SentimentIntensityAnalyzer
 
 sentanal = SentimentIntensityAnalyzer() # initialize the SIA
 
-askMsg = 1
+askMsg = 1 # declare a bool controlling the while loop
 messages = [] # declare a list for messages
-sentiments = 0
+sentiments = 0 # declare a variable 'sentiments' and initialize it with a zero
 
 while askMsg == 1:
     message = input("Insert a message:\n")
     msgSentiment = sentanal.polarity_scores(message)["compound"]
-    msgSentiment = (msgSentiment+1)/2*100
+    msgSentiment = (msgSentiment+1)/2*100 # this formula converts the compound value of the sentiment in the interval <-1 ... 1> to a percentage
     for word in message.split(" "):
         if word == "break":
             askMsg = 0
@@ -30,5 +30,5 @@ while askMsg == 1:
         sentiments += msgSentiment
 
 print (messages)
-sentiments = sentiments / len(messages)
+sentiments = sentiments / len(messages) # divide the sum of all the sentiments by their count
 print (sentiments)
