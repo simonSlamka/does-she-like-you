@@ -14,15 +14,21 @@ from nltk.sentiment import SentimentIntensityAnalyzer
 sentanal = SentimentIntensityAnalyzer() # initialize the SIA
 
 askMsg = 1
-messages = [] # declare a list for a girl's messages
+messages = [] # declare a list for messages
+sentiments = 0
 
 while askMsg == 1:
-    message = input("Insert a girl's message:\n")
+    message = input("Insert a message:\n")
+    msgSentiment = sentanal.polarity_scores(message)["compound"]
+    msgSentiment = (msgSentiment+1)/2*100
     for word in message.split(" "):
         if word == "break":
             askMsg = 0
             break
     else:
         messages.append(message)
+        sentiments += msgSentiment
 
 print (messages)
+sentiments = sentiments / len(messages)
+print (sentiments)
