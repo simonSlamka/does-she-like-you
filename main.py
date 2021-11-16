@@ -6,10 +6,6 @@
 
 # Put in more messages to potentially increase precision.
 
-import json
-from json import loads
-from json import dumps
-import nltk
 from nltk.sentiment import SentimentIntensityAnalyzer
 
 sentanal = SentimentIntensityAnalyzer() # initialize the SIA
