@@ -1,8 +1,14 @@
+"""
+A little program for evaluating a girl's responses using the NLTK SIA.
+"""
+
 #!/usr/bin/python3
 
 # Written by Simon Slamka in pursuit of a successful online communication with a girl.
-# I could never really talk to people and read them, recognize their intent and emotions. That's the reason I made this.
-# Of course, all this is for entertainment purposes only. The model is not so precise and can't be trusted with life.
+# I could never really talk to people and read them, recognize their intent and emotions.
+# That's the reason I made this.
+# Of course, all this is for entertainment purposes only.
+# The model is not so precise and can't be trusted with life.
 
 # Put in more messages to potentially increase precision.
 
