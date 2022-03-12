@@ -14,36 +14,41 @@ A little program for evaluating a girl's responses using the NLTK SIA.
 
 from nltk.sentiment import SentimentIntensityAnalyzer
 
-sentanal = SentimentIntensityAnalyzer() # initialize the SIA
+sentanal = SentimentIntensityAnalyzer()  # initialize the SIA
 
-bAskMsg = 1 # declare a bool controlling the while loop
-messages = [] # declare a list for messages
-sentiments = 0 # declare a variable 'sentiments' and initialize it with a zero
+ASK_MSG = 1  # declare a bool controlling the while loop
+messages = []  # declare a list for messages
+SENTIMENTS = 0  # declare a variable 'sentiments' and initialize it with a zero
 
-while bAskMsg == 1:
+while ASK_MSG == 1:
     message = input("Insert a message:\n")
     msgSentiment = sentanal.polarity_scores(message)["compound"]
-    msgSentiment = (msgSentiment+1)/2*100 # this formula converts the compound value of the sentiment in the interval <-1 ... 1> to a percentage
+    # this formula converts the compound value of the sentiment
+    # in the interval <-1 ... 1> to a percentage
+    msgSentiment = (msgSentiment + 1) / 2 * 100
     for word in message.split(" "):
         if word == "break":
-            bAskMsg = 0
+            ASK_MSG = 0
             break
     else:
         messages.append(message)
-        sentiments += msgSentiment
+        SENTIMENTS += msgSentiment
 
 print("")
 print("'break' keyword detected, terminating loop ...")
 print("-------------------------------")
 print("")
 print("")
-sentiments = sentiments / len(messages) # divide the sum of all the sentiments by their count
-print("Total sentiment of her messages: ", sentiments)
-if sentiments > 80:
+# divide the sum of all the sentiments by their count
+SENTIMENTS = SENTIMENTS / len(messages)
+print("Total sentiment of her messages: ", SENTIMENTS)
+if SENTIMENTS > 80:
     print("She probably likes you!")
-elif sentiments > 65 and sentiments < 80:
+elif SENTIMENTS > 65 < 80:
     print("Her messages are positive, but with no stronger feelings to them.")
-elif sentiments > 50 and sentiments < 65:
+elif SENTIMENTS > 50 < 65:
     print("Her responses are very neutral. Isn't she just your friend?")
 else:
-    print("This is not good ... she either doesn't care much or just can't talk properly - don't give it too much thought though, happens to all of us ...")
+    print(
+        "This is not good ... she either doesn't care much or just can't talk properly - don't give it too much thought though, happens to all of us ..."
+    )

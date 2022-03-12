@@ -1,0 +1,20 @@
+version: 0.1
+cli:
+  version: 0.8.1-beta
+lint:
+  enabled:
+    - black-py@21.10b0
+    - flake8@3.9.2
+    - gitleaks@7.6.1
+    - isort@5.9.3
+    - markdownlint@0.29.0
+    - prettier@2.4.1
+    - clang-format@13.0.0
+    - clang-tidy@13.0.0
+    - actionlint@1.6.10
+    - semgrep@0.61.0
+    - autopep8@1.6.0
+    - bandit@1.7.4
+    - isort@5.10.1
+    - pylint@2.11.0
+    - yapf@0.32.0
