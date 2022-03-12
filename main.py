@@ -1,7 +1,4 @@
-"""
-A little program for evaluating a girl's responses using the NLTK SIA.
-"""
-
+"""A little program for evaluating a girl's responses using the NLTK SIA."""
 #!/usr/bin/python3
 
 # Written by Simon Slamka in pursuit of a successful online communication with a girl.
@@ -13,13 +10,14 @@ A little program for evaluating a girl's responses using the NLTK SIA.
 # Put in more messages to potentially increase precision.
 
 from __future__ import division
+from __future__ import absolute_import
 from nltk.sentiment import SentimentIntensityAnalyzer
 
 sentanal = SentimentIntensityAnalyzer()  # initialize the SIA
 
 ASK_MSG = 1  # declare a bool controlling the while loop
 messages = []  # declare a list for messages
-SENTIMENTS = 0  # declare a variable 'sentiments' and initialize it with a zero
+SENTIMENTS = 0.0  # declare a variable 'sentiments' and initialize it with a zero
 
 while ASK_MSG == 1:
     message = input("Insert a message:\n")
@@ -40,8 +38,8 @@ print("'break' keyword detected, terminating loop ...")
 print("-------------------------------")
 print("")
 print("")
-# divide the sum of all the sentiments by their float(count)
-SENTIMENTS = SENTIMENTS / float(len(messages))
+# divide the sum of all the sentiments by their count
+SENTIMENTS = SENTIMENTS / len(messages)
 print("Total sentiment of her messages: ", SENTIMENTS)
 if SENTIMENTS > 80:
     print("She probably likes you!")
